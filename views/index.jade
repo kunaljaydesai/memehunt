@@ -1,0 +1,115 @@
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+
+link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css')
+link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600', type='text/css')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js') 
+script(src="/javascripts/doublie.js")
+
+
+
+style.
+	.page{
+		font-family: 'Titillium Web', sans-serif;
+	}
+	#upload {
+		width: auto;
+		float: right;
+		height: auto;
+	}
+	.logo {
+		max-height: 100%;
+		
+		float: left;
+		position: relative;
+
+	}
+	div.center iframe{
+	    display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	}
+	
+	div.nav{
+		width:100%;
+		height: 50px;
+
+	}
+	div.container{
+		padding-top: 10px;
+		text-align: center;
+	}
+	#upload{
+		float: right;
+		width: auto;
+		height: auto;
+		margin-top: 20px;
+	}
+	.postsnippet{
+		margin-left: auto;
+		margin-right: auto;
+		width: 8em;
+		background-color: yellow;
+		
+	}
+	.vote{
+		display: inline-block;
+
+	}
+	#postblock{
+		display: inline-block;
+		width: 90%;
+		height: 100px;
+		margin: 1em;
+		background-color: black;
+	}
+	img{
+		max-width: 100%; 
+	}
+	iframe{
+		max-width: 100%;
+	}
+
+html(lang="en")
+extends layout
+block content
+	div(style="text-align:center;")
+		h1(style="font-size: 48; font-weight: 600;") Popular
+		br
+		for post in todayposts
+			div(style="width: 90%; height: 100px; margin-left: auto; margin-right: auto;", class="postsnippet")
+				if post.liked
+					div(style="text-align: center; width: 25px; display: inline-block; float: left; z-index: -1;")
+						img(src="/images/icon-triangle-active.png", id=post.url, disabled ='disabled', style="float: left; width: 25px; height: auto; display: block; margin: 0 auto;", classpare="unvote")
+						p(style="font-size: 24;") #{post.likes}
+						
+				else
+					div(style="text-align: center; width: 30px; display: inline-block; float: left; z-index: -1;")
+						img(src="/images/icon-triangle.png", id=post.url, disabled ='disabled', style="float: left; width: 25px; height: auto; display: block; margin: 0 auto;", class='vote')
+						p(style="font-size: 24;") #{post.likes}
+
+				
+				div(style="display: inline-block;  overflow: hidden; height:100px; z-index:-1; text-overflow: ellipsis; white-space: nowrap;" class="textContainer")
+					a(href=post.url) #{post.title}
+					br
+					body Author: #{post.author}
+				img(src=post.snippet, style="float: right; display:inline-block;", height="60", width="60", class="img-thumbnail")
+				br
+				br
+	div(style='float: right; float: bottom; position: fixed; width: 10%; height: 10%')
+					a(href="/upload")
+						img(style='position: fixed; bottom: 0; right: 0; width:75px; height: auto;' src="/images/icon-upload.png" href="/upload")
+	.modal.fade(id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+		.modal-dialog
+			.modal-content
+				.modal-header
+					button.close(id='close', type='button', data-dismiss='modal', aria-hidden='true') ×
+					h4.myModalLabel.modal-title 
+					| 
+				.modal-body
+					#container(style="width:auto; height:auto; margin: 0 auto;")
+						
+				
+		
+
+		

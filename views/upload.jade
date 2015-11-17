@@ -1,0 +1,23 @@
+extends layout
+block content
+    div(class='container')
+        div(style="max-width:500px; min-width: 40%; float: left; padding-right: 20px;" )
+            h1 Uploader
+                h2=error
+                form(method="POST", action="/upload")
+                    | URL:
+                    br
+                    input(type="text", name="url", style="width: 100%; ")
+                    br
+                    br
+                    | Title:
+                    br
+                    input(type="text", name="title", style="width: 100%; ")
+                    br
+                    br
+                    input(type="submit", value="Submit")
+        div(style="")
+            h1 Guidelines
+                p(style="font-size: 20px; padding-top: 10px;") As of right now, Memehunt only accepts links from Twitter, Reddit, and Tumblr. 
+                p(style="font-size: 20px;") Post the full link of the post and include a short title. 
+                

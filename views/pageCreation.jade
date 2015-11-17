@@ -1,0 +1,10 @@
+extends layout
+block content
+    div(class='container')
+        div(style="max-width:500px; min-width: 40%; float: left; padding-right: 20px;" )
+            h1 Ranker
+                h2=error
+                form(method="POST", action="/pageCreation", id='page')
+                    textarea(rows="10", columns="10", name="urls", form_id="page")
+                    input(type="submit", value="Submit")
+        

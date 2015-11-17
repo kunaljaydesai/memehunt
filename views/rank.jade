@@ -1,0 +1,19 @@
+extends layout
+block content
+    div(class='container')
+        div(style="max-width:500px; min-width: 40%; float: left; padding-right: 20px;" )
+            h1 Ranker
+                h2=error
+                form(method="POST", action="/rank")
+                    | Room ID:
+                    br
+                    input(type="text", name="roomid", style="width: 100%; ")
+                    br
+                    br
+                    | count:
+                    br
+                    input(type="text", name="numResults", style="width: 100%; ")
+                    br
+                    br
+                    input(type="submit", value="Submit")
+        
